@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@layer base {
+  :root {
+    /* Primary - Soft Teal (Trust, Life, Hope) */
+    --primary: 175 42% 46%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 175 45% 92%;
+    --primary-dark: 175 50% 35%;
+    
+    /* Secondary - Warm Coral (Warmth, Care) */
+    --secondary: 15 85% 65%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 15 90% 95%;
+    
+    /* Accent - Soft Lavender */
+    --accent: 250 45% 70%;
+    --accent-foreground: 250 45% 20%;
+    
+    /* Backgrounds */
+    --background: 40 30% 98%;
+    --foreground: 220 25% 15%;
+    
+    /* Cards & Surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 15%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 15%;
+    
+    /* Muted */
+    --muted: 40 20% 95%;
+    --muted-foreground: 220 15% 45%;
+    
+    /* Borders */
+    --border: 40 20% 90%;
+    --input: 40 20% 90%;
+    --ring: 175 42% 46%;
+    
+    /* Destructive */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Radius */
+    --radius: 0.75rem;
+    
+    /* Custom colors */
+    --cream: 40 30% 96%;
+    --cream-dark: 40 25% 92%;
+    --teal-gradient-start: 175 45% 50%;
+    --teal-gradient-end: 185 40% 40%;
+    --coral-gradient-start: 15 85% 65%;
+    --coral-gradient-end: 8 75% 55%;
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --primary: 175 45% 55%;
+    --primary-foreground: 220 25% 10%;
+    --primary-light: 175 30% 20%;
+    --primary-dark: 175 50% 65%;
+    
+    --secondary: 15 75% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 15 40% 20%;
+    
+    --accent: 250 40% 60%;
+    --accent-foreground: 250 20% 95%;
+    
+    --background: 220 25% 8%;
+    --foreground: 40 20% 95%;
+    
+    --card: 220 25% 12%;
+    --card-foreground: 40 20% 95%;
+    
+    --popover: 220 25% 12%;
+    --popover-foreground: 40 20% 95%;
+    
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 15% 65%;
+    
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 175 45% 55%;
+    
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --cream: 220 20% 12%;
+    --cream-dark: 220 20% 15%;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary to-primary-dark;
+  }
+  
+  .gradient-secondary {
+    @apply bg-gradient-to-br from-secondary to-[hsl(8,75%,55%)];
+  }
+  
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--primary-light)) 0%, hsl(var(--cream)) 50%, hsl(var(--secondary-light)) 100%);
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+  
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md border border-border/50 shadow-lg;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24 px-4 md:px-8;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 md:px-8;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.5s ease-out forwards;
+  }
+  
+  .animate-pulse-soft {
+    animation: pulseSoft 3s ease-in-out infinite;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/50;
+}
