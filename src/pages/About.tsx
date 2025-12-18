@@ -1,10 +1,12 @@
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { openWhatsApp } from "@/lib/whatsapp";
-import { Target, Eye, Award, Heart, Users, Sparkles, Shield, Clock } from "lucide-react";
+import { Target, Award, Heart, Users, Sparkles, Shield, Clock } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
 import { AnimatedButton } from "@/components/AnimatedButton";
 import { AnimatedCard } from "@/components/AnimatedCard";
+import doctorPatientImage from "@/assets/Doctor_patient.png";
+import fetalityImage from "@/assets/fetality.png";
 
 const expertise = [
   {
@@ -64,14 +66,12 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <div className="relative">
-                <div className="aspect-square rounded-3xl bg-gradient-to-br from-primary/20 to-secondary/20 p-8 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-24 h-24 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center animate-float">
-                      <Target className="w-12 h-12 text-primary-foreground" />
-                    </div>
-                    <p className="text-xl font-display font-semibold text-foreground">Our Mission</p>
-                    <p className="text-muted-foreground">Dedicated to Your Dream</p>
-                  </div>
+                <div className="aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20">
+                  <img
+                    src={doctorPatientImage}
+                    alt="Doctor consulting with patient"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="absolute -bottom-6 -right-6 p-4 rounded-2xl bg-card shadow-soft border border-border/50">
                   <div className="flex items-center gap-3">
@@ -151,14 +151,12 @@ const About = () => {
 
             <div className="order-1 lg:order-2">
               <div className="relative">
-                <div className="aspect-square rounded-3xl bg-gradient-to-br from-secondary/20 to-accent/20 p-8 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-24 h-24 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-secondary to-[hsl(8,75%,55%)] flex items-center justify-center animate-float">
-                      <Eye className="w-12 h-12 text-secondary-foreground" />
-                    </div>
-                    <p className="text-xl font-display font-semibold text-foreground">Our Vision</p>
-                    <p className="text-muted-foreground">Excellence in Care</p>
-                  </div>
+                <div className="aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-secondary/20 to-accent/20">
+                  <img
+                    src={fetalityImage}
+                    alt="Fertility and fetal medicine care"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>
