@@ -1,6 +1,8 @@
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { ArrowRight, Baby, Heart, Sparkles, Dna, Stethoscope } from "lucide-react";
+import { AnimatedCard } from "@/components/AnimatedCard";
+import { FadeIn } from "@/components/FadeIn";
 
 const serviceCategories = [
   {
@@ -71,12 +73,12 @@ const Services = () => {
       <section className="section-padding">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {serviceCategories.map((category) => (
-              <Link
-                key={category.title}
-                to={category.href}
-                className="group relative p-8 rounded-3xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-300 hover-lift overflow-hidden"
-              >
+            {serviceCategories.map((category, index) => (
+              <AnimatedCard key={category.title} delay={index * 0.1}>
+                <Link
+                  to={category.href}
+                  className="group relative p-8 rounded-3xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-300 overflow-hidden block"
+                >
                 {/* Background Gradient */}
                 <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
                   category.color === "primary" ? "bg-gradient-to-br from-primary/5 to-transparent" :
@@ -126,7 +128,8 @@ const Services = () => {
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
-              </Link>
+                </Link>
+              </AnimatedCard>
             ))}
           </div>
         </div>

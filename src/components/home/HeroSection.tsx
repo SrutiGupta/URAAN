@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { openWhatsApp } from "@/lib/whatsapp";
 import { ArrowRight, Heart, Sparkles, Shield, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
+import { FadeIn } from "@/components/FadeIn";
+import { AnimatedButton } from "@/components/AnimatedButton";
 
 export function HeroSection() {
   return (
@@ -18,26 +20,31 @@ export function HeroSection() {
           {/* Content */}
           <div className="space-y-8 text-center lg:text-left">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 animate-fade-up">
-              <Clock className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">24/7 Support Available</span>
-            </div>
+            <FadeIn delay={0}>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+                <Clock className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-primary">24/7 Support Available</span>
+              </div>
+            </FadeIn>
 
             {/* Heading */}
-            <div className="space-y-4 animate-fade-up" style={{ animationDelay: "0.1s" }}>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground leading-tight">
-                Your Journey to{" "}
-                <span className="gradient-text">Parenthood</span>{" "}
-                Starts Here
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 text-balance">
-                1st Dedicated Fetal Medicine & Fertility Clinic in Purba Barddhaman. 
-                Advanced treatments with personalized care and expert guidance.
-              </p>
-            </div>
+            <FadeIn delay={0.1}>
+              <div className="space-y-4">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground leading-tight">
+                  Your Journey to{" "}
+                  <span className="gradient-text">Parenthood</span>{" "}
+                  Starts Here
+                </h1>
+                <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 text-balance">
+                  1st Dedicated Fetal Medicine & Fertility Clinic in Purba Barddhaman.
+                  Advanced treatments with personalized care and expert guidance.
+                </p>
+              </div>
+            </FadeIn>
 
             {/* Stats */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-6 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+            <FadeIn delay={0.2}>
+              <div className="flex flex-wrap justify-center lg:justify-start gap-6">
               <div className="flex items-center gap-2">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                   <Heart className="w-5 h-5 text-primary" />
@@ -65,24 +72,28 @@ export function HeroSection() {
                   <p className="text-xs text-muted-foreground">Expert Doctors</p>
                 </div>
               </div>
-            </div>
+              </div>
+            </FadeIn>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-up" style={{ animationDelay: "0.3s" }}>
-              <Button onClick={() => openWhatsApp()} variant="hero" size="lg">
-                Book Consultation
-                <ArrowRight className="w-5 h-5" />
-              </Button>
-              <Button asChild variant="outline" size="lg">
-                <Link to="/services">
-                  Explore Services
-                </Link>
-              </Button>
-            </div>
+            <FadeIn delay={0.3}>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <AnimatedButton onClick={() => openWhatsApp()} variant="hero" size="lg">
+                  Book Consultation
+                  <ArrowRight className="w-5 h-5" />
+                </AnimatedButton>
+                <AnimatedButton asChild variant="outline" size="lg">
+                  <Link to="/services">
+                    Explore Services
+                  </Link>
+                </AnimatedButton>
+              </div>
+            </FadeIn>
           </div>
 
           {/* Visual */}
-          <div className="relative hidden lg:block animate-fade-up" style={{ animationDelay: "0.4s" }}>
+          <FadeIn delay={0.4} direction="left">
+            <div className="relative hidden lg:block">
             <div className="relative">
               {/* Main Image Card */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
@@ -122,7 +133,8 @@ export function HeroSection() {
                 </div>
               </div>
             </div>
-          </div>
+            </div>
+          </FadeIn>
         </div>
       </div>
     </section>

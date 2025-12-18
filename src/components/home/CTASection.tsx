@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { openWhatsApp, PHONE_NUMBERS } from "@/lib/whatsapp";
 import { Phone, MessageCircle, Clock, Heart, Stethoscope } from "lucide-react";
+import { AnimatedButton } from "@/components/AnimatedButton";
+import { FadeIn } from "@/components/FadeIn";
 
 export function CTASection() {
   return (
@@ -38,7 +40,7 @@ export function CTASection() {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button
+              <AnimatedButton
                 onClick={() => openWhatsApp()}
                 variant="white"
                 size="lg"
@@ -46,8 +48,8 @@ export function CTASection() {
               >
                 <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 Book Appointment
-              </Button>
-              <Button
+              </AnimatedButton>
+              <AnimatedButton
                 asChild
                 variant="hero-outline"
                 size="lg"
@@ -56,7 +58,7 @@ export function CTASection() {
                   <Phone className="w-5 h-5" />
                   Call Us Now
                 </a>
-              </Button>
+              </AnimatedButton>
             </div>
           </div>
 

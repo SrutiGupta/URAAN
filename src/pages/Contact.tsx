@@ -6,6 +6,9 @@ import { PHONE_NUMBERS, CLINIC_EMAIL, CLINIC_ADDRESS, WORKING_HOURS } from "@/li
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { FadeIn } from "@/components/FadeIn";
+import { AnimatedButton } from "@/components/AnimatedButton";
+import { AnimatedCard } from "@/components/AnimatedCard";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -38,15 +41,17 @@ const Contact = () => {
         </div>
 
         <div className="container-custom relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6">
-              Contact <span className="gradient-text">Us</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Have questions about our fertility & fetal medicine treatments? We're here to help. 
-              Reach out to us and our team will get back to you as soon as possible.
-            </p>
-          </div>
+          <FadeIn>
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6">
+                Contact <span className="gradient-text">Us</span>
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Have questions about our fertility & fetal medicine treatments? We're here to help.
+                Reach out to us and our team will get back to you as soon as possible.
+              </p>
+            </div>
+          </FadeIn>
         </div>
       </section>
 

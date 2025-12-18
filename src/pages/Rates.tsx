@@ -6,6 +6,9 @@ import { Input } from "@/components/ui/input";
 import { openWhatsApp } from "@/lib/whatsapp";
 import { CheckCircle, CreditCard, Shield, Search, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { AnimatedCard } from "@/components/AnimatedCard";
+import { FadeIn } from "@/components/FadeIn";
+import { AnimatedButton } from "@/components/AnimatedButton";
 
 type Category = "all" | "consultations" | "usg" | "fetal" | "procedures";
 
@@ -124,8 +127,9 @@ export default function Rates() {
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-6">
             {features.map((feature, index) => (
-              <div
+              <AnimatedCard
                 key={index}
+                delay={index * 0.1}
                 className="flex items-center gap-4 p-6 rounded-2xl bg-background border border-border/50 shadow-soft"
               >
                 <div className="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center flex-shrink-0">
@@ -135,7 +139,7 @@ export default function Rates() {
                   <h3 className="font-display font-semibold text-foreground">{feature.title}</h3>
                   <p className="text-sm text-muted-foreground">{feature.description}</p>
                 </div>
-              </div>
+              </AnimatedCard>
             ))}
           </div>
         </div>

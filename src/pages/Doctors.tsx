@@ -2,6 +2,9 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { openWhatsApp } from "@/lib/whatsapp";
 import { Clock, Award, MessageCircle } from "lucide-react";
+import { FadeIn } from "@/components/FadeIn";
+import { AnimatedButton } from "@/components/AnimatedButton";
+import { AnimatedCard } from "@/components/AnimatedCard";
 
 const doctors = [
   {
@@ -105,9 +108,10 @@ const Doctors = () => {
         <div className="container-custom">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {doctors.map((doctor, index) => (
-              <div
+              <AnimatedCard
                 key={doctor.name}
-                className={`group relative rounded-2xl bg-card border border-border/50 overflow-hidden hover:border-primary/30 transition-all duration-300 hover-lift ${
+                delay={index * 0.1}
+                className={`group relative rounded-2xl bg-card border border-border/50 overflow-hidden hover:border-primary/30 transition-all duration-300 ${
                   doctor.featured ? "sm:col-span-2 lg:col-span-1" : ""
                 }`}
               >
@@ -143,7 +147,7 @@ const Doctors = () => {
                   <p className="text-muted-foreground text-xs leading-relaxed line-clamp-3 mb-4">
                     {doctor.qualifications}
                   </p>
-                  <Button
+                  <AnimatedButton
                     onClick={() => openWhatsApp({ service: `Consultation with ${doctor.name}` })}
                     variant="outline"
                     size="sm"
@@ -151,9 +155,9 @@ const Doctors = () => {
                   >
                     <MessageCircle className="w-4 h-4" />
                     Book Appointment
-                  </Button>
+                  </AnimatedButton>
                 </div>
-              </div>
+              </AnimatedCard>
             ))}
           </div>
         </div>
@@ -162,18 +166,20 @@ const Doctors = () => {
       {/* CTA */}
       <section className="section-padding bg-gradient-to-br from-primary to-primary-dark">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-foreground mb-4">
-              Ready to Meet Our Experts?
-            </h2>
-            <p className="text-primary-foreground/80 text-lg mb-8">
-              Schedule a consultation with any of our specialists today.
-            </p>
-            <Button onClick={() => openWhatsApp()} variant="white" size="lg">
-              <MessageCircle className="w-5 h-5" />
-              Book Consultation
-            </Button>
-          </div>
+          <FadeIn>
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-foreground mb-4">
+                Ready to Meet Our Experts?
+              </h2>
+              <p className="text-primary-foreground/80 text-lg mb-8">
+                Schedule a consultation with any of our specialists today.
+              </p>
+              <AnimatedButton onClick={() => openWhatsApp()} variant="white" size="lg">
+                <MessageCircle className="w-5 h-5" />
+                Book Consultation
+              </AnimatedButton>
+            </div>
+          </FadeIn>
         </div>
       </section>
     </Layout>

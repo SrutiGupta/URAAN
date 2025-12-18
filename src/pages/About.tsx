@@ -2,6 +2,9 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { openWhatsApp } from "@/lib/whatsapp";
 import { Target, Eye, Award, Heart, Users, Sparkles, Shield, Clock } from "lucide-react";
+import { FadeIn } from "@/components/FadeIn";
+import { AnimatedButton } from "@/components/AnimatedButton";
+import { AnimatedCard } from "@/components/AnimatedCard";
 
 const expertise = [
   {
@@ -37,19 +40,21 @@ const About = () => {
         </div>
 
         <div className="container-custom relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-              <Clock className="w-4 h-4" />
-              24/7 Support Available
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6">
-              About <span className="gradient-text">UDAAN</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              1st Dedicated Fetal Medicine & Fertility Clinic in Purba Barddhaman. 
-              Your trusted partner on the journey to parenthood.
-            </p>
-          </div>
+          <FadeIn>
+            <div className="max-w-3xl mx-auto text-center">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
+                <Clock className="w-4 h-4" />
+                24/7 Support Available
+              </span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6">
+                About <span className="gradient-text">UDAAN</span>
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                1st Dedicated Fetal Medicine & Fertility Clinic in Purba Barddhaman.
+                Your trusted partner on the journey to parenthood.
+              </p>
+            </div>
+          </FadeIn>
         </div>
       </section>
 

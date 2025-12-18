@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, TestTube, Baby, Sparkles, Stethoscope, Dna, Users, Scan } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AnimatedCard } from "@/components/AnimatedCard";
+import { FadeIn } from "@/components/FadeIn";
+import { AnimatedButton } from "@/components/AnimatedButton";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -52,27 +56,28 @@ export function ServicesOverview() {
     <section className="section-padding">
       <div className="container-custom">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
-            Our Services
-          </span>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Comprehensive Care for Your Journey
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            From fertility treatments to fetal medicine, we offer a complete range of services to support you.
-          </p>
-        </div>
+        <FadeIn>
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
+              Our Services
+            </span>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+              Comprehensive Care for Your Journey
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              From fertility treatments to fetal medicine, we offer a complete range of services to support you.
+            </p>
+          </div>
+        </FadeIn>
 
         {/* Services Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <Link
-              key={service.title}
-              to={service.href}
-              className="group relative p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-300 hover-lift"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
+            <AnimatedCard key={service.title} delay={index * 0.1}>
+              <Link
+                to={service.href}
+                className="group relative p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-300 block"
+              >
               {/* Icon */}
               <div className={`w-12 h-12 rounded-xl mb-4 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 ${
                 service.color === "primary" ? "bg-primary/10" :
@@ -99,19 +104,22 @@ export function ServicesOverview() {
                 Learn More
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
-            </Link>
+              </Link>
+            </AnimatedCard>
           ))}
         </div>
 
         {/* View All */}
-        <div className="text-center mt-12">
-          <Button asChild variant="outline" size="lg">
-            <Link to="/services">
-              View All Services
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </Button>
-        </div>
+        <FadeIn delay={0.4}>
+          <div className="text-center mt-12">
+            <AnimatedButton asChild variant="outline" size="lg">
+              <Link to="/services">
+                View All Services
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </AnimatedButton>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

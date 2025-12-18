@@ -1,4 +1,6 @@
 import { Users, Microscope, Heart } from "lucide-react";
+import { AnimatedCard } from "@/components/AnimatedCard";
+import { FadeIn } from "@/components/FadeIn";
 
 const features = [
   {
@@ -26,25 +28,27 @@ export function WhyChooseUs() {
     <section className="section-padding bg-card">
       <div className="container-custom">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-            Why Choose Us
-          </span>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Why Choose UDAAN?
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            We combine expertise, technology, and compassion to provide the best fertility and fetal medicine care.
-          </p>
-        </div>
+        <FadeIn>
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              Why Choose Us
+            </span>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+              Why Choose UDAAN?
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              We combine expertise, technology, and compassion to provide the best fertility and fetal medicine care.
+            </p>
+          </div>
+        </FadeIn>
 
         {/* Features Grid */}
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <div
+            <AnimatedCard
               key={feature.title}
-              className="group relative p-8 rounded-2xl bg-background border border-border/50 hover:border-primary/30 transition-all duration-300 hover-lift"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              delay={index * 0.1}
+              className="group relative p-8 rounded-2xl bg-background border border-border/50 hover:border-primary/30 transition-all duration-300"
             >
               {/* Icon */}
               <div className={`w-14 h-14 rounded-2xl mb-6 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 ${
@@ -73,7 +77,7 @@ export function WhyChooseUs() {
                 feature.color === "secondary" ? "bg-secondary/5" :
                 "bg-accent/5"
               }`} />
-            </div>
+            </AnimatedCard>
           ))}
         </div>
       </div>
