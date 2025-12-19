@@ -4,6 +4,80 @@ import { ArrowRight, Heart, Sparkles, Shield, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { FadeIn } from "@/components/FadeIn";
 import { AnimatedButton } from "@/components/AnimatedButton";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+
+const TypingText = () => {
+  const fullText = "Your Journey to Parenthood Starts Here";
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) {
+      const pauseTimer = setTimeout(() => {
+        setIsPaused(false);
+        setIsDeleting(true);
+      }, 2000);
+      return () => clearTimeout(pauseTimer);
+    }
+
+    const typingSpeed = isDeleting ? 30 : 80;
+
+    const timer = setTimeout(() => {
+      if (!isDeleting) {
+        // Typing
+        if (displayedText.length < fullText.length) {
+          setDisplayedText(fullText.slice(0, displayedText.length + 1));
+        } else {
+          setIsPaused(true);
+        }
+      } else {
+        // Deleting
+        if (displayedText.length > 0) {
+          setDisplayedText(fullText.slice(0, displayedText.length - 1));
+        } else {
+          setIsDeleting(false);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, isPaused, fullText]);
+
+  // Split text to apply gradient to "Parenthood"
+  const renderText = () => {
+    const text = displayedText;
+    const parenthoodIndex = text.indexOf("Parenthood");
+
+    if (parenthoodIndex === -1) {
+      return text;
+    }
+
+    const before = text.slice(0, parenthoodIndex);
+    const parenthood = text.slice(parenthoodIndex, parenthoodIndex + 10);
+    const after = text.slice(parenthoodIndex + 10);
+
+    return (
+      <>
+        {before}
+        <span className="gradient-text">{parenthood}</span>
+        {after}
+      </>
+    );
+  };
+
+  return (
+    <>
+      {renderText()}
+      <motion.span
+        animate={{ opacity: [1, 0] }}
+        transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+        className="inline-block ml-1 w-0.5 h-[1em] bg-primary align-middle"
+      />
+    </>
+  );
+};
 
 export function HeroSection() {
   return (
@@ -30,10 +104,8 @@ export function HeroSection() {
             {/* Heading */}
             <FadeIn delay={0.1}>
               <div className="space-y-4">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground leading-tight">
-                  Your Journey to{" "}
-                  <span className="gradient-text">Parenthood</span>{" "}
-                  Starts Here
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground leading-tight min-h-[1.2em]">
+                  <TypingText />
                 </h1>
                 <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 text-balance">
                   1st Dedicated Fetal Medicine & Fertility Clinic in Purba Barddhaman.
@@ -50,7 +122,7 @@ export function HeroSection() {
                   <Heart className="w-5 h-5 text-primary" />
                 </div>
                 <div className="text-left">
-                  <p className="text-2xl font-bold text-foreground">500+</p>
+                  <p className="text-2xl font-bold text-foreground">50+</p>
                   <p className="text-xs text-muted-foreground">Happy Families</p>
                 </div>
               </div>
