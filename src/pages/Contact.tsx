@@ -34,19 +34,19 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden gradient-hero">
+      <section className="relative py-20 md:py-32 overflow-hidden bg-background">
         <div className="absolute inset-0">
           <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         </div>
 
         <div className="container-custom relative z-10">
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6">
                 Contact <span className="gradient-text">Us</span>
               </h1>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-xl text-slate-400 max-w-2xl mx-auto">
                 Have questions about our fertility & fetal medicine treatments? We're here to help.
                 Reach out to us and our team will get back to you as soon as possible.
               </p>
@@ -56,7 +56,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-secondary">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Contact Form */}
@@ -65,10 +65,10 @@ const Contact = () => {
                 <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
                   Send a Message
                 </span>
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
                   Get in Touch
                 </h2>
-                <p className="text-muted-foreground">
+                <p className="text-slate-400">
                   Fill out the form below and we'll respond as soon as possible.
                 </p>
               </div>
@@ -76,7 +76,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                       Full Name
                     </label>
                     <Input

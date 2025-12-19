@@ -53,18 +53,18 @@ const services = [
 
 export function ServicesOverview() {
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-background">
       <div className="container-custom">
         {/* Header */}
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
               Our Services
             </span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
               Comprehensive Care for Your Journey
             </h2>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-slate-400 text-lg">
               From fertility treatments to fetal medicine, we offer a complete range of services to support you.
             </p>
           </div>
@@ -76,26 +76,18 @@ export function ServicesOverview() {
             <AnimatedCard key={service.title} delay={index * 0.1}>
               <Link
                 to={service.href}
-                className="group relative p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-300 block"
+                className="group relative p-6 rounded-2xl bg-black/40 backdrop-blur-xl border border-white/10 hover:border-primary/50 transition-all duration-300 block hover:shadow-lg hover:shadow-primary/20"
               >
               {/* Icon */}
-              <div className={`w-12 h-12 rounded-xl mb-4 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 ${
-                service.color === "primary" ? "bg-primary/10" :
-                service.color === "secondary" ? "bg-secondary/10" :
-                "bg-accent/20"
-              }`}>
-                <service.icon className={`w-6 h-6 ${
-                  service.color === "primary" ? "text-primary" :
-                  service.color === "secondary" ? "text-secondary" :
-                  "text-accent"
-                }`} />
+              <div className="w-12 h-12 rounded-xl mb-4 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 bg-primary/10">
+                <service.icon className="w-6 h-6 text-primary" />
               </div>
 
               {/* Content */}
-              <h3 className="text-lg font-display font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+              <h3 className="text-lg font-display font-semibold text-white mb-2 group-hover:text-primary transition-colors">
                 {service.title}
               </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+              <p className="text-slate-400 text-sm leading-relaxed mb-4">
                 {service.description}
               </p>
 

@@ -45,14 +45,14 @@ export function Navbar() {
   // Check if we're on homepage
   const isHomepage = location.pathname === "/";
 
-  // Two-state navbar: solid dark blue at top, glassmorphism when scrolled
+  // Two-state navbar: solid jet black at top, glassmorphism when scrolled
   const getNavbarClasses = () => {
     if (isHomepage && !scrolled) {
-      // STATE 1: Top of homepage (scrollY = 0) - Solid dark blue
-      return "bg-[#0B1C2D]";
+      // STATE 1: Top of homepage (scrollY = 0) - Solid jet black
+      return "bg-[#050B12]";
     } else {
       // STATE 2: Scrolled (scrollY > 0) - Glassmorphism
-      return "bg-[#0B1C2D]/60 backdrop-blur-xl border-b border-white/10 shadow-lg";
+      return "bg-[#050B12]/70 backdrop-blur-xl border-b border-white/10 shadow-lg";
     }
   };
 
@@ -115,8 +115,8 @@ export function Navbar() {
                       className={cn(
                         "absolute top-full left-0 mt-2 w-56 rounded-xl shadow-2xl overflow-hidden transition-all duration-300",
                         isHomepage && !scrolled
-                          ? "bg-[#0B1C2D] border border-white/10"
-                          : "bg-[#0B1C2D]/70 backdrop-blur-xl border border-white/15",
+                          ? "bg-[#050B12] border border-white/10"
+                          : "bg-black/40 backdrop-blur-xl border border-white/10",
                         servicesOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
                       )}
                       onMouseEnter={() => setServicesOpen(true)}
@@ -167,8 +167,8 @@ export function Navbar() {
           className={cn(
             "lg:hidden overflow-hidden transition-all duration-300 ease-in-out",
             isHomepage && !scrolled
-              ? "bg-[#0B1C2D] border-b border-white/10"
-              : "bg-[#0B1C2D]/70 backdrop-blur-xl border-b border-white/15",
+              ? "bg-[#050B12] border-b border-white/10"
+              : "bg-black/40 backdrop-blur-xl border-b border-white/10",
             isOpen ? "max-h-[600px]" : "max-h-0"
           )}
         >

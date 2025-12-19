@@ -9,16 +9,16 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-soft hover:shadow-glow",
+        default: "bg-[#2563EB] text-white hover:bg-[#1D4ED8] shadow-lg hover:shadow-primary/30",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-primary-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-soft",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-gradient-to-r from-primary to-[hsl(175,50%,35%)] text-primary-foreground shadow-lg hover:shadow-glow hover:-translate-y-0.5",
-        "hero-outline": "border-2 border-primary-foreground/30 text-primary-foreground bg-transparent hover:bg-primary-foreground/10 backdrop-blur-sm",
-        coral: "bg-gradient-to-r from-secondary to-[hsl(8,75%,55%)] text-secondary-foreground shadow-lg hover:-translate-y-0.5",
-        white: "bg-card text-foreground border border-border hover:bg-muted shadow-soft",
+        outline: "border-2 border-[#2563EB] text-[#2563EB] bg-transparent hover:bg-[#2563EB] hover:text-white",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-lg",
+        ghost: "hover:bg-white/10 hover:text-white",
+        link: "text-[#2563EB] underline-offset-4 hover:underline",
+        hero: "bg-[#2563EB] text-white shadow-lg hover:bg-[#1D4ED8] hover:shadow-primary/40 hover:-translate-y-0.5",
+        "hero-outline": "border-2 border-white/30 text-white bg-transparent hover:bg-white/10 backdrop-blur-sm",
+        coral: "bg-[#2563EB] text-white shadow-lg hover:bg-[#1D4ED8] hover:-translate-y-0.5",
+        white: "bg-white/10 text-white border border-white/20 hover:bg-white/20 shadow-lg backdrop-blur-sm",
       },
       size: {
         default: "h-10 px-5 py-2",
