@@ -17,6 +17,7 @@ const navLinks = [
   { name: "Services", href: "/services", dropdown: services },
   { name: "About Us", href: "/about" },
   { name: "Our Doctors", href: "/doctors" },
+  { name: "Gallery", href: "/gallery" },
   { name: "Contact", href: "/contact" },
 ];
 

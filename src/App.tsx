@@ -8,6 +8,7 @@ import { AnimatedPage } from "@/components/AnimatedPage";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Doctors from "./pages/Doctors";
+import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import BookAppointment from "./pages/BookAppointment";
 import Services from "./pages/Services";
@@ -31,6 +32,7 @@ function AnimatedRoutes() {
         <Route path="/" element={<AnimatedPage><Index /></AnimatedPage>} />
         <Route path="/about" element={<AnimatedPage><About /></AnimatedPage>} />
         <Route path="/doctors" element={<AnimatedPage><Doctors /></AnimatedPage>} />
+        <Route path="/gallery" element={<AnimatedPage><Gallery /></AnimatedPage>} />
         <Route path="/contact" element={<AnimatedPage><Contact /></AnimatedPage>} />
         <Route path="/book-appointment" element={<AnimatedPage><BookAppointment /></AnimatedPage>} />
         <Route path="/services" element={<AnimatedPage><Services /></AnimatedPage>} />
