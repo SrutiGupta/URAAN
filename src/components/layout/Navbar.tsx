@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -23,26 +23,55 @@ const navLinks = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  // Track scroll position for two-state navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setScrolled(scrollPosition > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const isActive = (href: string) => {
     if (href === "/") return location.pathname === "/";
     return location.pathname.startsWith(href);
   };
 
+  // Check if we're on homepage
+  const isHomepage = location.pathname === "/";
+
+  // Two-state navbar: solid dark blue at top, glassmorphism when scrolled
+  const getNavbarClasses = () => {
+    if (isHomepage && !scrolled) {
+      // STATE 1: Top of homepage (scrollY = 0) - Solid dark blue
+      return "bg-[#0B1C2D]";
+    } else {
+      // STATE 2: Scrolled (scrollY > 0) - Glassmorphism
+      return "bg-[#0B1C2D]/60 backdrop-blur-xl border-b border-white/10 shadow-lg";
+    }
+  };
+
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border/50 shadow-soft">
+      <nav className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out",
+        getNavbarClasses()
+      )}>
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center shadow-md">
                 <span className="text-primary-foreground font-display font-bold text-lg">U</span>
               </div>
               <div className="hidden sm:block">
-                <span className="font-display font-bold text-lg text-foreground">UDAAN</span>
-                <span className="hidden lg:inline text-xs text-muted-foreground ml-2">
+                <span className="font-display font-bold text-lg text-white">UDAAN</span>
+                <span className="hidden lg:inline text-xs text-sky-300 ml-2">
                   Fetal Medicine & Fertility
                 </span>
               </div>
@@ -55,10 +84,10 @@ export function Navbar() {
                   {link.dropdown ? (
                     <button
                       className={cn(
-                        "px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-1",
+                        "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-1",
                         isActive(link.href)
-                          ? "text-primary bg-primary-light"
-                          : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                          ? "text-white bg-white/20"
+                          : "text-white hover:bg-white/15"
                       )}
                       onMouseEnter={() => setServicesOpen(true)}
                       onMouseLeave={() => setServicesOpen(false)}
@@ -70,10 +99,10 @@ export function Navbar() {
                     <Link
                       to={link.href}
                       className={cn(
-                        "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+                        "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200",
                         isActive(link.href)
-                          ? "text-primary bg-primary-light"
-                          : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                          ? "text-white bg-white/20"
+                          : "text-white hover:bg-white/15"
                       )}
                     >
                       {link.name}
@@ -84,7 +113,10 @@ export function Navbar() {
                   {link.dropdown && (
                     <div
                       className={cn(
-                        "absolute top-full left-0 mt-1 w-56 bg-card rounded-xl shadow-lg border border-border/50 overflow-hidden transition-all duration-200",
+                        "absolute top-full left-0 mt-2 w-56 rounded-xl shadow-2xl overflow-hidden transition-all duration-300",
+                        isHomepage && !scrolled
+                          ? "bg-[#0B1C2D] border border-white/10"
+                          : "bg-[#0B1C2D]/70 backdrop-blur-xl border border-white/15",
                         servicesOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
                       )}
                       onMouseEnter={() => setServicesOpen(true)}
@@ -95,7 +127,7 @@ export function Navbar() {
                           <Link
                             key={item.name}
                             to={item.href}
-                            className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                            className="block px-4 py-2.5 text-sm text-white hover:bg-white/15 transition-all duration-200"
                           >
                             {item.name}
                           </Link>
@@ -109,12 +141,12 @@ export function Navbar() {
 
             {/* CTA Buttons */}
             <div className="hidden md:flex items-center gap-3">
-              <a href="tel:+917866819192" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+              <a href="tel:+917866819192" className="flex items-center gap-2 text-sm text-sky-300 hover:text-white transition-colors">
                 <Phone className="w-4 h-4" />
                 <span className="hidden xl:inline">+91 7866819192</span>
               </a>
               <Link to="/rates">
-                <Button variant="hero" size="default">
+                <Button variant="hero" size="default" className="shadow-lg">
                   Book Appointment
                 </Button>
               </Link>
@@ -123,7 +155,7 @@ export function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+              className="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors text-white"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -133,7 +165,10 @@ export function Navbar() {
         {/* Mobile Menu */}
         <div
           className={cn(
-            "lg:hidden bg-card border-b border-border/50 overflow-hidden transition-all duration-300",
+            "lg:hidden overflow-hidden transition-all duration-300 ease-in-out",
+            isHomepage && !scrolled
+              ? "bg-[#0B1C2D] border-b border-white/10"
+              : "bg-[#0B1C2D]/70 backdrop-blur-xl border-b border-white/15",
             isOpen ? "max-h-[600px]" : "max-h-0"
           )}
         >
@@ -144,18 +179,18 @@ export function Navbar() {
                   <div>
                     <button
                       onClick={() => setServicesOpen(!servicesOpen)}
-                      className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                      className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-white hover:bg-white/15 transition-all duration-200"
                     >
                       {link.name}
-                      <ChevronDown className={cn("w-4 h-4 transition-transform", servicesOpen && "rotate-180")} />
+                      <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", servicesOpen && "rotate-180")} />
                     </button>
-                    <div className={cn("pl-4 space-y-1 overflow-hidden transition-all", servicesOpen ? "max-h-60 mt-1" : "max-h-0")}>
+                    <div className={cn("pl-4 space-y-1 overflow-hidden transition-all duration-300", servicesOpen ? "max-h-60 mt-1" : "max-h-0")}>
                       {link.dropdown.map((item) => (
                         <Link
                           key={item.name}
                           to={item.href}
                           onClick={() => setIsOpen(false)}
-                          className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted transition-colors"
+                          className="block px-4 py-2 text-sm text-white rounded-lg hover:bg-white/15 transition-all duration-200"
                         >
                           {item.name}
                         </Link>
@@ -167,10 +202,10 @@ export function Navbar() {
                     to={link.href}
                     onClick={() => setIsOpen(false)}
                     className={cn(
-                      "block px-4 py-3 rounded-lg transition-colors",
+                      "block px-4 py-3 rounded-lg transition-all duration-200",
                       isActive(link.href)
-                        ? "text-primary bg-primary-light"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                        ? "text-white bg-white/20"
+                        : "text-white hover:bg-white/15"
                     )}
                   >
                     {link.name}
@@ -180,7 +215,7 @@ export function Navbar() {
             ))}
             <div className="pt-4">
               <Link to="/rates" onClick={() => setIsOpen(false)}>
-                <Button variant="hero" className="w-full">
+                <Button variant="hero" className="w-full shadow-lg">
                   Book Appointment
                 </Button>
               </Link>
