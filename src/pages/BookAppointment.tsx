@@ -2,7 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { openWhatsApp } from "@/lib/whatsapp";
 import { useState } from "react";
-import { Calendar, Clock, MessageCircle, Check } from "lucide-react";
+import { Calendar, MessageCircle, Check } from "lucide-react";
 
 const serviceCategories = [
   {
@@ -23,32 +23,19 @@ const serviceCategories = [
   },
 ];
 
-const timeSlots = [
-  "9:00 AM",
-  "10:00 AM",
-  "11:00 AM",
-  "12:00 PM",
-  "2:00 PM",
-  "3:00 PM",
-  "4:00 PM",
-  "5:00 PM",
-];
-
 const BookAppointment = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedService, setSelectedService] = useState<string | null>(null);
   const [selectedDate, setSelectedDate] = useState<string>("");
-  const [selectedTime, setSelectedTime] = useState<string | null>(null);
 
   const handleBooking = () => {
     openWhatsApp({
       service: selectedService || "General Consultation",
       date: selectedDate,
-      time: selectedTime || "Any available slot",
     });
   };
 
-  const isFormComplete = selectedService && selectedDate && selectedTime;
+  const isFormComplete = selectedService && selectedDate;
 
   return (
     <Layout>
@@ -79,26 +66,26 @@ const BookAppointment = () => {
             <div className="flex items-center justify-center gap-4 mb-12">
               {[
                 { step: 1, label: "Service" },
-                { step: 2, label: "Date & Time" },
+                { step: 2, label: "Date" },
                 { step: 3, label: "Confirm" },
               ].map((item, index) => (
                 <div key={item.step} className="flex items-center gap-4">
                   <div className={`flex items-center gap-2 ${
                     (item.step === 1 && selectedService) ||
-                    (item.step === 2 && selectedDate && selectedTime) ||
+                    (item.step === 2 && selectedDate) ||
                     (item.step === 3 && isFormComplete)
                       ? "text-primary"
                       : "text-muted-foreground"
                   }`}>
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
                       (item.step === 1 && selectedService) ||
-                      (item.step === 2 && selectedDate && selectedTime) ||
+                      (item.step === 2 && selectedDate) ||
                       (item.step === 3 && isFormComplete)
                         ? "bg-primary text-primary-foreground"
                         : "bg-muted text-muted-foreground"
                     }`}>
                       {((item.step === 1 && selectedService) ||
-                        (item.step === 2 && selectedDate && selectedTime)) ? (
+                        (item.step === 2 && selectedDate)) ? (
                         <Check className="w-4 h-4" />
                       ) : (
                         item.step
@@ -175,19 +162,19 @@ const BookAppointment = () => {
                   </div>
                 )}
 
-                {/* Date & Time Selection */}
+                {/* Date Selection */}
                 {selectedService && (
                   <div className="p-6 rounded-2xl bg-card border border-border/50 animate-fade-up">
                     <h2 className="text-lg font-display font-semibold text-foreground mb-4 flex items-center gap-2">
                       <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
                         <span className="text-primary text-sm font-bold">2</span>
                       </div>
-                      Select Date & Time
+                      Select Date
                     </h2>
 
                     {/* Date */}
-                    <div className="mb-6">
-                      <label className="block text-sm font-medium text-foreground mb-2 flex items-center gap-2">
+                    <div>
+                      <label className="flex items-center gap-2 text-sm font-medium text-foreground mb-2">
                         <Calendar className="w-4 h-4 text-primary" />
                         Preferred Date
                       </label>
@@ -198,29 +185,6 @@ const BookAppointment = () => {
                         min={new Date().toISOString().split("T")[0]}
                         className="w-full h-12 px-4 rounded-xl bg-muted border-0 text-foreground focus:ring-2 focus:ring-primary"
                       />
-                    </div>
-
-                    {/* Time Slots */}
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2 flex items-center gap-2">
-                        <Clock className="w-4 h-4 text-primary" />
-                        Preferred Time
-                      </label>
-                      <div className="grid grid-cols-4 gap-2">
-                        {timeSlots.map((time) => (
-                          <button
-                            key={time}
-                            onClick={() => setSelectedTime(time)}
-                            className={`py-3 rounded-lg text-sm font-medium transition-all ${
-                              selectedTime === time
-                                ? "bg-primary text-primary-foreground"
-                                : "bg-muted text-foreground hover:bg-muted/80"
-                            }`}
-                          >
-                            {time}
-                          </button>
-                        ))}
-                      </div>
                     </div>
                   </div>
                 )}
@@ -247,12 +211,6 @@ const BookAppointment = () => {
                       <p className="text-xs text-muted-foreground mb-1">Date</p>
                       <p className="font-medium text-foreground">
                         {selectedDate || "Not selected"}
-                      </p>
-                    </div>
-                    <div className="p-3 rounded-lg bg-muted">
-                      <p className="text-xs text-muted-foreground mb-1">Time</p>
-                      <p className="font-medium text-foreground">
-                        {selectedTime || "Not selected"}
                       </p>
                     </div>
                   </div>
