@@ -4,7 +4,19 @@ import { FadeIn } from "@/components/FadeIn";
 import { AnimatedCard } from "@/components/AnimatedCard";
 import { X, ZoomIn, Camera } from "lucide-react";
 
-// Import gallery images
+// Import doctor images
+import doctor1 from "@/assets/doctor1.jpg";
+import doctor2 from "@/assets/doctor2.jpg";
+import doctor3 from "@/assets/doctor3.jpg";
+import doctor4 from "@/assets/doctor4.jpg";
+import doctor5 from "@/assets/doctor5.jpg";
+import doctor6 from "@/assets/doctor6.jpg";
+import doctor7 from "@/assets/doctor7.jpg";
+import doctor8 from "@/assets/doctor8.jpg";
+import doctor9 from "@/assets/doctor9.jpg";
+import doctor10 from "@/assets/doctor10.jpg";
+
+// Import facility images
 import udaan1 from "@/assets/udaan.jpg";
 import udaan2 from "@/assets/udaan2.jpg";
 import udaan3 from "@/assets/udaan3.jpg";
@@ -22,21 +34,31 @@ import udaan14 from "@/assets/udaan14.jpg";
 import udaan15 from "@/assets/udaan15.jpg";
 
 const galleryImages = [
-  { id: 1, src: udaan1, alt: "UDAAN Clinic - Facility 1" },
-  { id: 2, src: udaan2, alt: "UDAAN Clinic - Facility 2" },
-  { id: 3, src: udaan3, alt: "UDAAN Clinic - Facility 3" },
-  { id: 4, src: udaan4, alt: "UDAAN Clinic - Facility 4" },
-  { id: 5, src: udaan5, alt: "UDAAN Clinic - Facility 5" },
-  { id: 6, src: udaan6, alt: "UDAAN Clinic - Facility 6" },
-  { id: 7, src: udaan7, alt: "UDAAN Clinic - Facility 7" },
-  { id: 8, src: udaan8, alt: "UDAAN Clinic - Facility 8" },
-  { id: 9, src: udaan9, alt: "UDAAN Clinic - Facility 9" },
-  { id: 10, src: udaan10, alt: "UDAAN Clinic - Facility 10" },
-  { id: 11, src: udaan11, alt: "UDAAN Clinic - Facility 11" },
-  { id: 12, src: udaan12, alt: "UDAAN Clinic - Facility 12" },
-  { id: 13, src: udaan13, alt: "UDAAN Clinic - Facility 13" },
-  { id: 14, src: udaan14, alt: "UDAAN Clinic - Facility 14" },
-  { id: 15, src: udaan15, alt: "UDAAN Clinic - Facility 15" },
+  { id: 1, src: doctor1, alt: "UDAAN Clinic Gallery" },
+  { id: 2, src: doctor2, alt: "UDAAN Clinic Gallery" },
+  { id: 3, src: doctor3, alt: "UDAAN Clinic Gallery" },
+  { id: 4, src: doctor4, alt: "UDAAN Clinic Gallery" },
+  { id: 5, src: doctor5, alt: "UDAAN Clinic Gallery" },
+  { id: 6, src: doctor6, alt: "UDAAN Clinic Gallery" },
+  { id: 7, src: doctor7, alt: "UDAAN Clinic Gallery" },
+  { id: 8, src: doctor8, alt: "UDAAN Clinic Gallery" },
+  { id: 9, src: doctor9, alt: "UDAAN Clinic Gallery" },
+  { id: 10, src: doctor10, alt: "UDAAN Clinic Gallery" },
+  { id: 11, src: udaan1, alt: "UDAAN Clinic Gallery" },
+  { id: 12, src: udaan2, alt: "UDAAN Clinic Gallery" },
+  { id: 13, src: udaan3, alt: "UDAAN Clinic Gallery" },
+  { id: 14, src: udaan4, alt: "UDAAN Clinic Gallery" },
+  { id: 15, src: udaan5, alt: "UDAAN Clinic Gallery" },
+  { id: 16, src: udaan6, alt: "UDAAN Clinic Gallery" },
+  { id: 17, src: udaan7, alt: "UDAAN Clinic Gallery" },
+  { id: 18, src: udaan8, alt: "UDAAN Clinic Gallery" },
+  { id: 19, src: udaan9, alt: "UDAAN Clinic Gallery" },
+  { id: 20, src: udaan10, alt: "UDAAN Clinic Gallery" },
+  { id: 21, src: udaan11, alt: "UDAAN Clinic Gallery" },
+  { id: 22, src: udaan12, alt: "UDAAN Clinic Gallery" },
+  { id: 23, src: udaan13, alt: "UDAAN Clinic Gallery" },
+  { id: 24, src: udaan14, alt: "UDAAN Clinic Gallery" },
+  { id: 25, src: udaan15, alt: "UDAAN Clinic Gallery" },
 ];
 
 const Gallery = () => {
@@ -56,13 +78,13 @@ const Gallery = () => {
             <div className="max-w-3xl mx-auto text-center">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
                 <Camera className="w-4 h-4" />
-                Our Facility
+                Gallery
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6">
                 <span className="gradient-text">Gallery</span>
               </h1>
               <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-                Take a virtual tour of our state-of-the-art facility and see where your journey begins.
+                Explore our clinic through images.
               </p>
             </div>
           </FadeIn>
