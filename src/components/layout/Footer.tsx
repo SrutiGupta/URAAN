@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import { PHONE_NUMBERS, CLINIC_EMAIL, CLINIC_ADDRESS, WORKING_HOURS } from "@/lib/whatsapp";
+import logo from "@/assets/logo.jpg";
 
 const quickLinks = [
   { name: "Home", href: "/" },
@@ -33,10 +34,12 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center">
-                <span className="text-white font-display font-bold text-lg">U</span>
-              </div>
+            <div className="flex items-center gap-3">
+              <img
+                src={logo}
+                alt="UDAAN Clinic Logo"
+                className="h-12 w-auto object-contain"
+              />
               <div>
                 <span className="font-display font-bold text-lg text-white">UDAAN</span>
               </div>

@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.jpg";
 
 const services = [
   { name: "Infertility Services", href: "/services/infertility" },
@@ -66,10 +67,12 @@ export function Navbar() {
         <div className="container-custom">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center shadow-md">
-                <span className="text-primary-foreground font-display font-bold text-lg">U</span>
-              </div>
+            <Link to="/" className="flex items-center gap-3">
+              <img
+                src={logo}
+                alt="UDAAN Clinic Logo"
+                className="h-12 md:h-14 w-auto object-contain"
+              />
               <div className="hidden sm:block">
                 <span className="font-display font-bold text-lg text-white">UDAAN</span>
                 <span className="hidden lg:inline text-xs text-sky-300 ml-2">
