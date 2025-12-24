@@ -19,7 +19,6 @@ export const generateWhatsAppMessage = (details?: BookingDetails): string => {
     "",
     `Service: ${details?.service || "General Consultation"}`,
     "Preferred Date:",
-    "Preferred Time:",
     "Name:",
     "Phone:",
   ];
