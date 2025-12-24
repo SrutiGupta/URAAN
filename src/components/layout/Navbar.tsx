@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/logo.jpg";
 
 const services = [
   { name: "Infertility Services", href: "/services/infertility" },
@@ -69,7 +68,7 @@ export function Navbar() {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3">
               <img
-                src={logo}
+                src="/logo.jpg"
                 alt="UDAAN Clinic Logo"
                 className="h-12 md:h-14 w-auto object-contain"
               />
