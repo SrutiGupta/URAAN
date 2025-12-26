@@ -11,7 +11,7 @@ const doctors = [
     name: "Dr. Sandip Mondal",
     role: "Gynecology & Obstetrics",
     qualifications: "MBBS(HONS)(GOLD MEDALIST) MS (G&O) MRCOG - I (UK)(LONDON) FELLOWSHIP IN FETAL MEDICINE (ICOG)(TN), FELLOWSHIP IN REPRODUCTIVE MEDICINE (NOVA-WINGS IVF, AHMEDABAD), FELLOWSHIP IN ADVANCED LAPAROSCOPIC SURGERY (FALS)",
-    image: "https://web-udaan.vercel.app/_next/image?url=%2Fdoctors%2Fdr-sandip.jpg&w=640&q=75",
+    image: "/doctor.png",
     featured: true,
   },
   {
@@ -19,12 +19,6 @@ const doctors = [
     role: "Genetic Counseling",
     qualifications: "Consultant Genetic Counselor State Co-ordinator (WB) Organization of Rare Disease India (ORDI)",
     image: "https://web-udaan.vercel.app/_next/image?url=%2Fdoctors%2Fdr-dipanjana.jpg&w=640&q=75",
-  },
-  {
-    name: "Dr. Ruchika Kar Chaudhuri",
-    role: "Gynecology & Obstetrics",
-    qualifications: "MBBS, MS (G&O)",
-    image: "https://web-udaan.vercel.app/_next/image?url=%2Fdoctors%2Fdr-ruchika.jpg&w=640&q=75",
   },
   {
     name: "Dr. Sukanta Dutta",
@@ -44,21 +38,14 @@ const doctors = [
     qualifications: "MBBS, MS (SURGERY), DNB (SURGERY)",
     image: "https://web-udaan.vercel.app/_next/image?url=%2Fdoctors%2Fabanerjee01.jpg&w=640&q=75",
   },
-  {
-    name: "Dr. Dibyajyoti Gupta",
-    role: "Cardiology",
-    qualifications: "MBBS, Dip Cardiology (PGDCC)",
-    image: "https://web-udaan.vercel.app/_next/image?url=%2Fdoctors%2Fdr-dibyajyoti.jpg&w=640&q=75",
-  },
 ];
 
 const specialties = [
   "Gynecology & Obstetrics",
+  "Fetal Medicine",
   "Genetic Counseling",
   "Internal Medicine",
   "Pediatrics",
-  "General Surgery",
-  "Cardiology",
 ];
 
 const Doctors = () => {
