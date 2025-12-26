@@ -71,15 +71,23 @@ export function Navbar() {
               <img
                 src={logoImage}
                 alt="UDAAN Clinic Logo"
-                className="h-12 md:h-14 w-auto object-contain"
+                className="h-10 md:h-14 w-auto object-contain"
               />
-              <div className="hidden sm:block">
+              <div className="hidden md:block">
                 <span className="font-display font-bold text-lg text-white">UDAAN</span>
                 <span className="hidden lg:inline text-xs text-sky-300 ml-2">
                   Fetal Medicine & Fertility
                 </span>
               </div>
             </Link>
+
+            {/* Mobile Center Text */}
+            <div className="flex-1 md:hidden flex justify-center px-4">
+              <div className="text-center">
+                <div className="font-display font-bold text-sm text-white leading-tight">UDAAN</div>
+                <div className="text-[10px] text-sky-300 leading-tight">Fetal Medicine & Fertility</div>
+              </div>
+            </div>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
