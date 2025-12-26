@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Globe } from "lucide-react";
 import { PHONE_NUMBERS, CLINIC_EMAIL, CLINIC_ADDRESS, WORKING_HOURS } from "@/lib/whatsapp";
 
 const quickLinks = [
@@ -20,10 +20,9 @@ const services = [
 ];
 
 const socialLinks = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Youtube, href: "#", label: "Youtube" },
+  { icon: Facebook, href: "https://m.facebook.com/61583101892173/", label: "Facebook" },
+  { icon: Instagram, href: "https://www.instagram.com/udaanfertilityclinic?igsh=anB3bHJ4ZTdiZjNr", label: "Instagram" },
+  { icon: Globe, href: "https://share.google/ZPcVqUiUTQgSxUlCn", label: "Google" },
 ];
 
 export function Footer() {
@@ -52,6 +51,8 @@ export function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
                   className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-primary hover:text-white transition-colors text-slate-400"
                 >
