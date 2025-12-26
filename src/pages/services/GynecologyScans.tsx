@@ -48,7 +48,7 @@ const GynecologyScans = () => {
               Gynecology <span className="gradient-text">Scans</span>
             </h1>
             <p className="text-xl text-muted-foreground">
-              Advanced ultrasound services for comprehensive women's health diagnostics.
+              Advanced ultrasound services for comprehensive women's health diagnostics including 3D Scan, 4D Scan, 5D Scan.
             </p>
           </div>
         </div>

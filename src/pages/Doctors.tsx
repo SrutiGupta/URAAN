@@ -5,13 +5,14 @@ import { Clock, Award, MessageCircle } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
 import { AnimatedButton } from "@/components/AnimatedButton";
 import { AnimatedCard } from "@/components/AnimatedCard";
+import doctorImage from "@/assets/doctor.jpg";
 
 const doctors = [
   {
     name: "Dr. Sandip Mondal",
     role: "Gynecology & Obstetrics",
     qualifications: "MBBS(HONS)(GOLD MEDALIST) MS (G&O) MRCOG - I (UK)(LONDON) FELLOWSHIP IN FETAL MEDICINE (ICOG)(TN), FELLOWSHIP IN REPRODUCTIVE MEDICINE (NOVA-WINGS IVF, AHMEDABAD), FELLOWSHIP IN ADVANCED LAPAROSCOPIC SURGERY (FALS)",
-    image: "/doctor.png",
+    image: doctorImage,
     featured: true,
   },
   {

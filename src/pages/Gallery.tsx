@@ -4,6 +4,12 @@ import { FadeIn } from "@/components/FadeIn";
 import { AnimatedCard } from "@/components/AnimatedCard";
 import { X, ZoomIn, Camera } from "lucide-react";
 
+// Import new pictures
+import firstPicture from "@/assets/1stimage.jpg";
+import secondPicture from "@/assets/2ndimage.jpg";
+import thirdPicture from "@/assets/3rdimage.jpg";
+import fourthPicture from "@/assets/4rthimage.jpg";
+
 // Import doctor images
 import doctor1 from "@/assets/doctor1.jpg";
 import doctor2 from "@/assets/doctor2.jpg";
@@ -34,31 +40,35 @@ import udaan14 from "@/assets/udaan14.jpg";
 import udaan15 from "@/assets/udaan15.jpg";
 
 const galleryImages = [
-  { id: 1, src: doctor1, alt: "UDAAN Clinic Gallery" },
-  { id: 2, src: doctor2, alt: "UDAAN Clinic Gallery" },
-  { id: 3, src: doctor3, alt: "UDAAN Clinic Gallery" },
-  { id: 4, src: doctor4, alt: "UDAAN Clinic Gallery" },
-  { id: 5, src: doctor5, alt: "UDAAN Clinic Gallery" },
-  { id: 6, src: doctor6, alt: "UDAAN Clinic Gallery" },
-  { id: 7, src: doctor7, alt: "UDAAN Clinic Gallery" },
-  { id: 8, src: doctor8, alt: "UDAAN Clinic Gallery" },
-  { id: 9, src: doctor9, alt: "UDAAN Clinic Gallery" },
-  { id: 10, src: doctor10, alt: "UDAAN Clinic Gallery" },
-  { id: 11, src: udaan1, alt: "UDAAN Clinic Gallery" },
-  { id: 12, src: udaan2, alt: "UDAAN Clinic Gallery" },
-  { id: 13, src: udaan3, alt: "UDAAN Clinic Gallery" },
-  { id: 14, src: udaan4, alt: "UDAAN Clinic Gallery" },
-  { id: 15, src: udaan5, alt: "UDAAN Clinic Gallery" },
-  { id: 16, src: udaan6, alt: "UDAAN Clinic Gallery" },
-  { id: 17, src: udaan7, alt: "UDAAN Clinic Gallery" },
-  { id: 18, src: udaan8, alt: "UDAAN Clinic Gallery" },
-  { id: 19, src: udaan9, alt: "UDAAN Clinic Gallery" },
-  { id: 20, src: udaan10, alt: "UDAAN Clinic Gallery" },
-  { id: 21, src: udaan11, alt: "UDAAN Clinic Gallery" },
-  { id: 22, src: udaan12, alt: "UDAAN Clinic Gallery" },
-  { id: 23, src: udaan13, alt: "UDAAN Clinic Gallery" },
-  { id: 24, src: udaan14, alt: "UDAAN Clinic Gallery" },
-  { id: 25, src: udaan15, alt: "UDAAN Clinic Gallery" },
+  { id: 1, src: firstPicture, alt: "UDAAN Clinic Gallery" },
+  { id: 2, src: secondPicture, alt: "UDAAN Clinic Gallery" },
+  { id: 3, src: thirdPicture, alt: "UDAAN Clinic Gallery" },
+  { id: 4, src: fourthPicture, alt: "UDAAN Clinic Gallery" },
+  { id: 5, src: doctor1, alt: "UDAAN Clinic Gallery" },
+  { id: 6, src: doctor2, alt: "UDAAN Clinic Gallery" },
+  { id: 7, src: doctor3, alt: "UDAAN Clinic Gallery" },
+  { id: 8, src: doctor4, alt: "UDAAN Clinic Gallery" },
+  { id: 9, src: doctor5, alt: "UDAAN Clinic Gallery" },
+  { id: 10, src: doctor6, alt: "UDAAN Clinic Gallery" },
+  { id: 11, src: doctor7, alt: "UDAAN Clinic Gallery" },
+  { id: 12, src: doctor8, alt: "UDAAN Clinic Gallery" },
+  { id: 13, src: doctor9, alt: "UDAAN Clinic Gallery" },
+  { id: 14, src: doctor10, alt: "UDAAN Clinic Gallery" },
+  { id: 15, src: udaan1, alt: "UDAAN Clinic Gallery" },
+  { id: 16, src: udaan2, alt: "UDAAN Clinic Gallery" },
+  { id: 17, src: udaan3, alt: "UDAAN Clinic Gallery" },
+  { id: 18, src: udaan4, alt: "UDAAN Clinic Gallery" },
+  { id: 19, src: udaan5, alt: "UDAAN Clinic Gallery" },
+  { id: 20, src: udaan6, alt: "UDAAN Clinic Gallery" },
+  { id: 21, src: udaan7, alt: "UDAAN Clinic Gallery" },
+  { id: 22, src: udaan8, alt: "UDAAN Clinic Gallery" },
+  { id: 23, src: udaan9, alt: "UDAAN Clinic Gallery" },
+  { id: 24, src: udaan10, alt: "UDAAN Clinic Gallery" },
+  { id: 25, src: udaan11, alt: "UDAAN Clinic Gallery" },
+  { id: 26, src: udaan12, alt: "UDAAN Clinic Gallery" },
+  { id: 27, src: udaan13, alt: "UDAAN Clinic Gallery" },
+  { id: 28, src: udaan14, alt: "UDAAN Clinic Gallery" },
+  { id: 29, src: udaan15, alt: "UDAAN Clinic Gallery" },
 ];
 
 const Gallery = () => {
