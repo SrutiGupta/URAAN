@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { openWhatsApp } from "@/lib/whatsapp";
-import { ArrowRight, Heart, Sparkles, Shield } from "lucide-react";
+import { ArrowRight, Heart, Sparkles, Shield, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { FadeIn } from "@/components/FadeIn";
 import { AnimatedButton } from "@/components/AnimatedButton";
@@ -84,7 +84,7 @@ export function HeroSection() {
   const [videoError, setVideoError] = useState(false);
 
   return (
-    <section className="relative w-full h-screen flex items-start md:items-center justify-center overflow-hidden pt-24 md:pt-0">
+    <section className="relative w-full h-screen flex items-start md:items-center justify-center overflow-hidden pt-20 md:pt-0">
       {/* Video Background */}
       {!videoError ? (
         <video
@@ -108,14 +108,22 @@ export function HeroSection() {
       {/* Content */}
       <div className="container-custom relative z-10 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="space-y-6">
-            {/* Heading */}
+          <div className="space-y-4 md:space-y-6">
+            {/* Badge */}
             <FadeIn delay={0}>
-              <div className="space-y-3">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight min-h-[1.2em]">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
+                <Clock className="w-3 h-3 md:w-4 md:h-4 text-white" />
+                <span className="text-xs md:text-sm font-medium text-white">24/7 Support Available</span>
+              </div>
+            </FadeIn>
+
+            {/* Heading */}
+            <FadeIn delay={0.1}>
+              <div className="space-y-2 md:space-y-3">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight min-h-[1.2em]">
                   <TypingText />
                 </h1>
-                <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
+                <p className="text-base md:text-xl text-white/90 max-w-3xl mx-auto">
                   1st Dedicated Fetal Medicine & Fertility Clinic in Purba Barddhaman.
                   Advanced treatments with personalized care and expert guidance.
                 </p>
@@ -123,52 +131,52 @@ export function HeroSection() {
             </FadeIn>
 
             {/* Stats */}
-            <FadeIn delay={0.1}>
-              <div className="flex flex-wrap justify-center gap-6 md:gap-8">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center">
-                    <Heart className="w-6 h-6 text-white" />
+            <FadeIn delay={0.2}>
+              <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+                <div className="flex items-center gap-2">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                    <Heart className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
                   <div className="text-left">
-                    <p className="text-2xl font-bold text-white">50+</p>
-                    <p className="text-sm text-white/80">Happy Families</p>
+                    <p className="text-xl md:text-2xl font-bold text-white">50+</p>
+                    <p className="text-xs md:text-sm text-white/80">Happy Families</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center">
-                    <Sparkles className="w-6 h-6 text-white" />
+                <div className="flex items-center gap-2">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                    <Sparkles className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
                   <div className="text-left">
-                    <p className="text-2xl font-bold text-white">50%+</p>
-                    <p className="text-sm text-white/80">Success Rate</p>
+                    <p className="text-xl md:text-2xl font-bold text-white">50%+</p>
+                    <p className="text-xs md:text-sm text-white/80">Success Rate</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center">
-                    <Shield className="w-6 h-6 text-white" />
+                <div className="flex items-center gap-2">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                    <Shield className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
                   <div className="text-left">
-                    <p className="text-2xl font-bold text-white">7+</p>
-                    <p className="text-sm text-white/80">Expert Doctors</p>
+                    <p className="text-xl md:text-2xl font-bold text-white">7+</p>
+                    <p className="text-xs md:text-sm text-white/80">Expert Doctors</p>
                   </div>
                 </div>
               </div>
             </FadeIn>
 
             {/* CTAs */}
-            <FadeIn delay={0.2}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <FadeIn delay={0.3}>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <AnimatedButton
                   onClick={() => openWhatsApp()}
-                  className="bg-primary hover:bg-primary-dark text-white px-8 py-6 text-lg"
+                  className="bg-primary hover:bg-primary-dark text-white px-6 py-4 md:px-8 md:py-6 text-base md:text-lg"
                   size="lg"
                 >
                   Book Consultation
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
                 </AnimatedButton>
                 <AnimatedButton
                   asChild
-                  className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-white/30 px-8 py-6 text-lg"
+                  className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-white/30 px-6 py-4 md:px-8 md:py-6 text-base md:text-lg"
                   variant="outline"
                   size="lg"
                 >
