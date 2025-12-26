@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { openWhatsApp } from "@/lib/whatsapp";
-import { ArrowRight, Heart, Sparkles, Shield, Clock } from "lucide-react";
+import { ArrowRight, Heart, Sparkles, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { FadeIn } from "@/components/FadeIn";
 import { AnimatedButton } from "@/components/AnimatedButton";
@@ -84,7 +84,7 @@ export function HeroSection() {
   const [videoError, setVideoError] = useState(false);
 
   return (
-    <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative w-full h-screen flex items-start md:items-center justify-center overflow-hidden pt-24 md:pt-0">
       {/* Video Background */}
       {!videoError ? (
         <video
@@ -108,18 +108,10 @@ export function HeroSection() {
       {/* Content */}
       <div className="container-custom relative z-10 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="space-y-8">
-            {/* Badge */}
-            <FadeIn delay={0}>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
-                <Clock className="w-4 h-4 text-white" />
-                <span className="text-sm font-medium text-white">24/7 Support Available</span>
-              </div>
-            </FadeIn>
-
+          <div className="space-y-6">
             {/* Heading */}
-            <FadeIn delay={0.1}>
-              <div className="space-y-4">
+            <FadeIn delay={0}>
+              <div className="space-y-3">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight min-h-[1.2em]">
                   <TypingText />
                 </h1>
@@ -131,7 +123,7 @@ export function HeroSection() {
             </FadeIn>
 
             {/* Stats */}
-            <FadeIn delay={0.2}>
+            <FadeIn delay={0.1}>
               <div className="flex flex-wrap justify-center gap-6 md:gap-8">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center">
@@ -164,7 +156,7 @@ export function HeroSection() {
             </FadeIn>
 
             {/* CTAs */}
-            <FadeIn delay={0.3}>
+            <FadeIn delay={0.2}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <AnimatedButton
                   onClick={() => openWhatsApp()}
